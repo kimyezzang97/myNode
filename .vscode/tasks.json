@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:/msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "커리큘럼 필수 옵션(-std=c++17 -Wall -Wextra) 적용 g++ 빌드"
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: Build and Run",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "dependsOn": "C/C++: g++.exe build active file",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "빌드 완료 후 바로 터미널에서 실행"
+        }
+    ]
+}
